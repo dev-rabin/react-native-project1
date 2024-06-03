@@ -1,70 +1,20 @@
-import { Image, StyleSheet, Platform } from 'react-native';
-
-import { HelloWave } from '@/components/HelloWave';
-import ParallaxScrollView from '@/components/ParallaxScrollView';
-import { ThemedText } from '@/components/ThemedText';
-import { ThemedView } from '@/components/ThemedView';
+import { Text, View, Image, ImageBackground, ScrollView } from "react-native";
+const image = require("../../assets/images/w_model.jpg");
 
 export default function HomeScreen() {
   return (
-    <ParallaxScrollView
-      headerBackgroundColor={{ light: '#A1CEDC', dark: '#1D3D47' }}
-      headerImage={
-        <Image
-          source={require('@/assets/images/partial-react-logo.png')}
-          style={styles.reactLogo}
-        />
-      }>
-      <ThemedView style={styles.titleContainer}>
-        <ThemedText type="title">Welcome!</ThemedText>
-        <HelloWave />
-      </ThemedView>
-      <ThemedView style={styles.stepContainer}>
-        <ThemedText type="subtitle">Step 1: Try it</ThemedText>
-        <ThemedText>
-          Edit <ThemedText type="defaultSemiBold">app/(tabs)/index.tsx</ThemedText> to see changes.
-          Press{' '}
-          <ThemedText type="defaultSemiBold">
-            {Platform.select({ ios: 'cmd + d', android: 'cmd + m' })}
-          </ThemedText>{' '}
-          to open developer tools.
-        </ThemedText>
-      </ThemedView>
-      <ThemedView style={styles.stepContainer}>
-        <ThemedText type="subtitle">Step 2: Explore</ThemedText>
-        <ThemedText>
-          Tap the Explore tab to learn more about what's included in this starter app.
-        </ThemedText>
-      </ThemedView>
-      <ThemedView style={styles.stepContainer}>
-        <ThemedText type="subtitle">Step 3: Get a fresh start</ThemedText>
-        <ThemedText>
-          When you're ready, run{' '}
-          <ThemedText type="defaultSemiBold">npm run reset-project</ThemedText> to get a fresh{' '}
-          <ThemedText type="defaultSemiBold">app</ThemedText> directory. This will move the current{' '}
-          <ThemedText type="defaultSemiBold">app</ThemedText> to{' '}
-          <ThemedText type="defaultSemiBold">app-example</ThemedText>.
-        </ThemedText>
-      </ThemedView>
-    </ParallaxScrollView>
+    <View style={{padding:30}}>
+     <ScrollView>
+     <Text
+        style={{ color: "red",alignSelf:"center", fontWeight: "bold", fontSize: 30 }}>
+        Home Screen
+      </Text>
+      <ImageBackground source={image} style={{width:300, height:300,alignSelf:"center",marginVertical:10}}>
+        <Text style={{color:"white",alignSelf:"center"}}>Modal Image</Text>
+      </ImageBackground>
+      <Text style={{textAlign:"justify"}}>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod commodi eaque eos at, animi cupiditate laudantium assumenda quam accusantium delectus soluta ullam temporibus quae perspiciatis, molestias minus accusamus quo doloremque rerum magnam iusto, saepe illum voluptate? Suscipit debitis repellendus quia numquam temporibus ut! Dolorem pariatur nobis neque iusto provident. Pariatur dicta obcaecati magni quo animi molestiae inventore ab minima quisquam incidunt suscipit temporibus omnis id voluptate amet, blanditiis voluptatibus ex quod voluptatum. Eum praesentium dolores, sequi corporis ad itaque dignissimos iure. Natus maiores alias cum eveniet, aliquid iusto consequatur, incidunt excepturi voluptates dolorem vero est voluptas quos minus officiis beatae. Aperiam, earum provident, consequatur aspernatur harum voluptates vel, tempora labore dolore inventore sed aut quibusdam doloribus dolorum animi cupiditate odit sunt maxime quasi unde eius. Aspernatur voluptas unde accusantium mollitia explicabo natus eveniet, quo sapiente ipsa illum culpa qui enim nemo distinctio quidem? Quas doloribus voluptatem eius aspernatur, nesciunt repellendus voluptatum cumque? Similique impedit velit odio commodi, beatae tempore alias ipsam obcaecati voluptate ut deserunt praesentium dicta consequatur magni inventore porro tempora nisi eaque accusamus facere, error numquam quo. Tempore quibusdam reprehenderit voluptas quae mollitia ratione nostrum explicabo laudantium non sint eius at aliquid, dignissimos ipsum facere in, esse architecto.</Text>
+      <Image source={{uri:"https://picsum.photos/200/300"}} style={{width:300,height:300,alignSelf:"center"}}/>
+     </ScrollView>
+    </View>
   );
 }
-
-const styles = StyleSheet.create({
-  titleContainer: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    gap: 8,
-  },
-  stepContainer: {
-    gap: 8,
-    marginBottom: 8,
-  },
-  reactLogo: {
-    height: 178,
-    width: 290,
-    bottom: 0,
-    left: 0,
-    position: 'absolute',
-  },
-});
